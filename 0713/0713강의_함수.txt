@@ -1,0 +1,159 @@
+함수
+	- 행위: 처리의 일련과정을 묶어놓은 기능단위
+		
+		인수: 처리할 영역에 들어갈 값
+	
+	function 함수명(인수, 인수 ...) {
+		//처리 영역
+		return 값; //처리된 결과 값을 반환
+	}
+	
+		ex)	
+			function sum(x) {
+				const result = x * 2 + 2;
+				return result;
+			}
+			
+	함수를 사용하려면? - 호출
+	함수명();
+	
+	만약 인수가 있다면?
+	함수명(값);		
+		ex)
+			sum(2);
+				-> 6
+				
+	인수가 없는 함수가 가능한가?
+		- 가능하다
+			function 함수명() {
+			
+			}
+			
+			함수명();
+			ex)
+				function bark() {
+					return '멍멍';
+				}
+				
+				bark();
+				
+			ex)	const text = bark();
+				
+				text();
+	
+	반환값이 없는 함수가 가능한가?
+		- 가능하다
+		- 내부적으로는 return이 없어도 undefined를 반환
+			(return undefined;)
+			
+			ex)
+				function bark() {
+				   console.log('멍멍');
+					// return undefined;  <-자동으로 추가가된다
+				}
+				
+				
+	전역변수
+		- 함수 외의 지역에서 정의되어있는 변수
+		- 함수 안, 밖 모두 쓸 수 있는 변수
+			
+			
+	지역변수
+		- 함수 내의 지역에서 정의되어있는 변수
+		- 함수 안에서만 쓸 수 있는 변수
+		- 함수가 호출될 때만 사용 가능
+		- 함수가 호출되는 동안에만 값이 유효하다
+		- 함수가 스택영역 메모리에 올라가있는 동안에만 유효하다
+	
+	전역변수 명과 지역변수 명이 같으면
+		-> 지역에서는 전역변수를 사용하지 않고, 지역변수를 사용
+		
+
+메모리
+	데이터 영역
+	힙영역
+	
+	스택영역- 함수가 호출되면 메모리에 실리는 영역
+			함수의 호출이 완료되면 함수가 메모리 영역에서 사라진다
+	
+	
+	스택(Stack)- 쌓다
+				- 가장 마지막에 쌓은 것이 가장 먼저 꺼내진다
+				- 가장 처음에 쌓은 것을 가장 나중에 꺼낸다
+	큐(Queue)- 대기열
+				- 가장 먼저 온 사람이 먼저 처리
+				
+
+자바스크립트에서 함수
+	-> 함수 객체
+	-> 원시 타입 + 객체 로 이루어져있다
+	
+	자바스크립트에서 함수는 1급 객체
+		- 함수를 인수로 쓸 수있다
+		
+		
+		- 함수를 반환 값으로 사용할 수 있다
+			- 함수 안에 함수를 정의할 수 있다
+			- 클로저
+			
+				ex) 함수를 인수로 사용
+					function testFunc(innerFunc) {
+						innerFunc();
+					}
+
+					const innerFunc = function() {
+						console.log('인수를 함수로쓰는 내부 함수');
+					};
+					
+					-> testFunc(innerFunc);
+					-> 인수를 함수로쓰는 내부 함수
+					
+					
+				ex) 함수를 반환
+					function testFunc() {
+						return function innerFunc() {
+							console.log('함수를 반환');  
+					  };
+					}
+					
+					-> const func = testFunc();
+					-> func();
+					-> 함수를 반환
+	
+		- 모든 변수는 스택 메모리에 저장된다
+
+
+
+	function sum() {
+	
+	};
+	
+	const sum = function() {
+	
+	};
+	
+	익명함수- 이름이 없는 함수
+	
+	
+
+
+var 
+let - var과 동일
+const - 상수
+
+const로 상수로 정의 -> 변경이 필요한 경우만 let
+
+
+	자바스크립트에서 함수 -> 함수 객체
+	Function 객체를 통해서 생성된 객체 -> Heap(힙) 영역
+	
+	
+	const testFunc = function testFunc2() {
+    console.log('테스트 함수 호출');
+	}
+	
+	const testFunc2 = testFunc;
+			
+			-> '테스트 함수 호출' 출력됨
+			-> testFunc 스택영역
+			-> testFunc2 힙영역

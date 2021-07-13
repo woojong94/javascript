@@ -113,7 +113,7 @@
 					- true(참), false(거짓)	
 					
 						- false로 인식하는 경우
-							false, 0, null
+							false, 0, null, '', undefined
 				
 				typeof- 자료형을 체크하는 연산자
 					- typeof a; typeof num 등
