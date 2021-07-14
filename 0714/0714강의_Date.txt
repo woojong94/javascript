@@ -1,0 +1,23 @@
+Date
+	날짜와 시간을 다루는 생성자
+	생성을 하면 현재 시간을 출력할 수 있다.
+	
+	.getFullYear()	-> 연도 // 2021
+	.getMonth()		-> 월(0부터 1월)
+	.getDate()		-> 일(날짜)
+	.getHours()		->	시
+	.getMiniutes()	->	분
+	.getSeconds()	->	초
+	.getDay()			-> 요일(0부터 월요일)
+	
+	
+	const date = new Date();
+	const year = date.getFullYear();
+	const month = date.getMont() + 1;
+	const day = date.getDate();
+
+	const hour = date.getHoures();
+	const minutes = date.getMinutes();
+	const seconds = date.getSeconde();
+
+	const str = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
